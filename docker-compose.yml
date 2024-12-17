@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: hogwarts-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: hogwarts_user
+      POSTGRES_PASSWORD: hogwarts_password
+      POSTGRES_DB: hogwarts_db
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

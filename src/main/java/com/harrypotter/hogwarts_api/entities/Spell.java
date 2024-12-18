@@ -19,5 +19,9 @@ public class Spell {
     private String spellName;
 
     @ManyToMany(mappedBy = "spells")
-    private List<Character> characters;
+    private List<Magician> magicians;
+
+    public Spell(String spellName) {
+        this.spellName = spellName;
+    }
 }

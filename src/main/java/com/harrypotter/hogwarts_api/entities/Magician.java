@@ -2,7 +2,7 @@ package com.harrypotter.hogwarts_api.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.w3c.dom.stylesheets.LinkStyle;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,15 +13,15 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "characters")
-public class Character {
+@Table(name = "magicians")
+public class Magician {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
     private String name;
-    private String house;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "house_id", nullable = false)
     private House houseEntity;
@@ -30,9 +30,11 @@ public class Character {
 
     @ManyToMany
     @JoinTable(
-            name = "character_spell",
-            joinColumns = @JoinColumn(name = "character_id"),
+            name = "magician_spell",
+            joinColumns = @JoinColumn(name = "magician_id"),
             inverseJoinColumns = @JoinColumn(name = "spell_id")
     )
     private List<Spell> spells;
+
+
 }

@@ -19,5 +19,9 @@ public class House {
     private String name;
 
     @OneToMany(mappedBy = "houseEntity")
-    private List<Character> characters;
+    private List<Magician> magicians;
+
+    public House(String name) {
+        this.name = name;
+    }
 }

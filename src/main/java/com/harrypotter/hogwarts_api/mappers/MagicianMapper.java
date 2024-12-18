@@ -13,12 +13,10 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface MagicianMapper {
 
-    // Mapear MagicianRequest a Magician
     @Mapping(target = "houseEntity.name", source = "houseName") // House se obtiene del nombre
     @Mapping(target = "spells", ignore = true) // Se mapea manualmente si es necesario
     Magician toEntity(MagicianRequest request);
 
-    // Mapear Magician a MagicianResponse
     @Mapping(target = "houseName", source = "houseEntity.name") // Obtenemos el nombre de la casa
     @Mapping(source = "createdAt", target = "createdAt")
     @Mapping(source = "updatedAt", target = "updatedAt")

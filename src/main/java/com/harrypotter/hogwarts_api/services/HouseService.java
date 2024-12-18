@@ -20,28 +20,24 @@ public class HouseService {
     @Autowired
     private HouseMapper houseMapper;
 
-    // Crear una casa
     public HouseResponse createHouse(HouseRequest request) {
         House house = houseMapper.toEntity(request);
         house = houseRepository.save(house);
         return houseMapper.toResponse(house);
     }
 
-    // Obtener todas las casas
     public List<HouseResponse> getAllHouses() {
         return houseRepository.findAll().stream()
                 .map(houseMapper::toResponse)
                 .collect(Collectors.toList());
     }
 
-    // Obtener una casa por ID
     public HouseResponse getHouseById(Long id) {
         House house = houseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("House not found"));
         return houseMapper.toResponse(house);
     }
 
-    // Actualizar una casa
     public HouseResponse updateHouse(Long id, HouseRequest request) {
         House existingHouse = houseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("House not found"));
@@ -50,7 +46,6 @@ public class HouseService {
         return houseMapper.toResponse(existingHouse);
     }
 
-    // Eliminar una casa
     public void deleteHouse(Long id) {
         House house = houseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("House not found"));

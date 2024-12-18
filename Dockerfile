@@ -1,8 +1,11 @@
 # Usar una imagen oficial
 FROM amazoncorretto:21-alpine-jdk
 
+WORKDIR /app
 
-# Copiar el archivo JAR al contenedor
+# Copiar el archivo JAR generado por Maven
+COPY target/hogwarts-api-0.0.1-SNAPSHOT.jar hogwarts-api.jar
 
-# Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "hogwarts-api.jar"]

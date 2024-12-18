@@ -20,10 +20,11 @@ public class Magician {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
+    @Column(unique = true)
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "house_id", nullable = false)
+    @JoinColumn(name = "house_id", nullable = true)
     private House houseEntity;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

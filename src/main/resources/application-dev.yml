@@ -1,9 +1,7 @@
-spring:
-  datasource:
-    url: jdbc:h2:mem:hogwarts
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  jpa:
-    hibernate:
-      ddl-auto: update
+# application-dev.properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/hogwarts
+spring.datasource.username=postgres
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect

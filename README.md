@@ -48,6 +48,20 @@ Run the following command to execute the tests:
 ## Database E/R Model
 ![img.png](img.png)
 
+## Entity Relationships
+
+1. **House to Magician (1:N)**
+   Description: One house can have many magicians, but each magician belongs to only one house.
+   Example: Gryffindor house can have multiple students like Harry Potter, Hermione Granger, and Ron Weasley.
+
+2. **Magician to Spell (N:M)**
+   Description: A magician can know multiple spells, and a spell can be known by multiple magicians.
+   Example: Harry Potter knows spells like Expelliarmus and Patronus, while Expelliarmus is also known by other magicians like Draco Malfoy.
+
+3. **House to Mascot (1:1) - Future Expansion**
+   Description: In a potential future expansion, each house could have one unique mascot.
+   Example: Gryffindor could have a lion as its mascot, Slytherin a serpent, Ravenclaw an eagle, and Hufflepuff a badger.
+
 ## Profiles
 In this project, I use Spring Boot profiles to manage configurations for different environments. I have two profiles configured: dev (development) and test (testing).
 

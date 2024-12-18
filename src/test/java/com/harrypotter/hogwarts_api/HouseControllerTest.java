@@ -5,6 +5,7 @@ import com.harrypotter.hogwarts_api.dtos.HouseRequest;
 import com.harrypotter.hogwarts_api.dtos.HouseResponse;
 import com.harrypotter.hogwarts_api.entities.House;
 import com.harrypotter.hogwarts_api.repositories.HouseRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -30,6 +31,11 @@ class HouseControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @BeforeEach
+    void setUp() {
+        houseRepository.deleteAll();
+    }
 
     @Test
     void given2Houses_whenCallGetAllHouses_thenReturnAListOfTheseHouses() throws Exception {

@@ -7,9 +7,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: yourpassword
-      POSTGRES_DB: hogwarts
+      POSTGRES_USER: hogwarts_user
+      POSTGRES_PASSWORD: hogwarts_password
+      POSTGRES_DB: hogwarts_db
     volumes:
       - postgres-data:/var/lib/postgresql/data
 

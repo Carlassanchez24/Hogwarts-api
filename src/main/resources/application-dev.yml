@@ -1,11 +1,14 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/hogwarts
-    username: postgres
-    password: yourpassword
+    url: jdbc:postgresql://dpg-cthfq2t6l47c73cj75pg-a.frankfurt-postgres.render.com/hogwarts_fhjt
+    username: hogwarts_fhjt_user
+    password: LHN80O0iUz1IG5sRBY7KesfmbmzUggRZ
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
     properties:
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        format_sql: true

@@ -20,28 +20,24 @@ public class SpellService {
     @Autowired
     private SpellMapper spellMapper;
 
-    // Crear un hechizo
     public SpellResponse createSpell(SpellRequest request) {
         Spell spell = spellMapper.toEntity(request);
         spell = spellRepository.save(spell);
         return spellMapper.toResponse(spell);
     }
 
-    // Obtener todos los hechizos
     public List<SpellResponse> getAllSpells() {
         return spellRepository.findAll().stream()
                 .map(spellMapper::toResponse)
                 .collect(Collectors.toList());
     }
 
-    // Obtener un hechizo por ID
     public SpellResponse getSpellById(Long id) {
         Spell spell = spellRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Spell not found"));
         return spellMapper.toResponse(spell);
     }
 
-    // Actualizar un hechizo
     public SpellResponse updateSpell(Long id, SpellRequest request) {
         Spell existingSpell = spellRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Spell not found"));
@@ -50,7 +46,6 @@ public class SpellService {
         return spellMapper.toResponse(existingSpell);
     }
 
-    // Eliminar un hechizo
     public void deleteSpell(Long id) {
         Spell spell = spellRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Spell not found"));

@@ -1,4 +1,5 @@
 package com.harrypotter.hogwarts_api.entities;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -16,10 +17,11 @@ public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String name;
 
     @OneToMany(mappedBy = "houseEntity")
-    private List<Magician> magicians;
+    private List<Magician> magicians = new ArrayList<>();
 
     public House(String name) {
         this.name = name;

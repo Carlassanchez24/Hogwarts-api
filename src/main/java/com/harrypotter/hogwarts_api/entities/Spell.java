@@ -16,6 +16,7 @@ public class Spell {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String spellName;
 
     @ManyToMany(mappedBy = "spells")

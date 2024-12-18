@@ -15,7 +15,7 @@ public interface HouseMapper {
 
     House toEntity(HouseRequest request);
 
-    @Mapping(target = "magicians", source = "magicians", qualifiedByName = "mapMagiciansToNames")
+    @Mapping(target = "magicianNames", source = "magicians", qualifiedByName = "mapMagiciansToNames")
     HouseResponse toResponse(House house);
 
     @Named("mapMagiciansToNames")

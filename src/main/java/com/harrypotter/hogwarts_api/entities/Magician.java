@@ -5,6 +5,7 @@ import lombok.*;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,7 +37,7 @@ public class Magician {
             joinColumns = @JoinColumn(name = "magician_id"),
             inverseJoinColumns = @JoinColumn(name = "spell_id")
     )
-    private List<Spell> spells;
+    private List<Spell> spells = new ArrayList<>();
 
 
 }

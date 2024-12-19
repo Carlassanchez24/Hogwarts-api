@@ -26,6 +26,7 @@ public class SpellService {
         return spellMapper.toResponse(spell);
     }
 
+
     public List<SpellResponse> getAllSpells() {
         return spellRepository.findAll().stream()
                 .map(spellMapper::toResponse)

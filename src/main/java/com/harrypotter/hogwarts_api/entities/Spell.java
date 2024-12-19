@@ -3,6 +3,7 @@ package com.harrypotter.hogwarts_api.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class Spell {
     private String spellName;
 
     @ManyToMany(mappedBy = "spells")
-    private List<Magician> magicians;
+    private List<Magician> magicians = new ArrayList<>();
 
     public Spell(String spellName) {
         this.spellName = spellName;

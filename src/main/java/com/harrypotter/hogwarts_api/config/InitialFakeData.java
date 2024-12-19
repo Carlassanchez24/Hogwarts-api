@@ -1,4 +1,4 @@
-/* package com.harrypotter.hogwarts_api.config;
+ package com.harrypotter.hogwarts_api.config;
 
 import com.harrypotter.hogwarts_api.entities.House;
 import com.harrypotter.hogwarts_api.entities.Spell;
@@ -47,4 +47,3 @@ public class InitialFakeData {
         };
     }
 }
-*/

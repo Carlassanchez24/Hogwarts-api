@@ -20,7 +20,7 @@ public class House {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "houseEntity")
+    @OneToMany(mappedBy = "houseEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Magician> magicians = new ArrayList<>();
 
     public House(String name) {

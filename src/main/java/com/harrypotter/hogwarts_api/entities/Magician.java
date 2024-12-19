@@ -5,6 +5,7 @@ import lombok.*;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,9 +24,10 @@ public class Magician {
     @Column(unique = true)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "house_id", nullable = true)
     private House houseEntity;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
@@ -35,7 +37,7 @@ public class Magician {
             joinColumns = @JoinColumn(name = "magician_id"),
             inverseJoinColumns = @JoinColumn(name = "spell_id")
     )
-    private List<Spell> spells;
+    private List<Spell> spells = new ArrayList<>();
 
 
 }

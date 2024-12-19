@@ -5,13 +5,16 @@ import com.harrypotter.hogwarts_api.dtos.HouseResponse;
 import com.harrypotter.hogwarts_api.entities.House;
 import com.harrypotter.hogwarts_api.mappers.HouseMapper;
 import com.harrypotter.hogwarts_api.repositories.HouseRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class HouseService {
 
     @Autowired
@@ -22,9 +25,15 @@ public class HouseService {
 
     public HouseResponse createHouse(HouseRequest request) {
         House house = houseMapper.toEntity(request);
+
+        if (house.getMagicians() == null) {
+            house.setMagicians(new ArrayList<>());
+        }
+
         house = houseRepository.save(house);
         return houseMapper.toResponse(house);
     }
+
 
     public List<HouseResponse> getAllHouses() {
         return houseRepository.findAll().stream()

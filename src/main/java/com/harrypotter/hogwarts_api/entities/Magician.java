@@ -23,9 +23,10 @@ public class Magician {
     @Column(unique = true)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "house_id", nullable = true)
     private House houseEntity;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

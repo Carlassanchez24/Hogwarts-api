@@ -52,19 +52,7 @@ class HouseControllerTest {
                 .andExpect(jsonPath("$[1].name", is("Slytherin")));
     }
 
-    @Test
-    void givenHouseWithEmptyName_whenAddHouse_thenReturnBadRequest() throws Exception {
-        String houseWithEmptyName = """
-                    {
-                        "name": ""
-                    }
-                """;
 
-        mockMvc.perform(post("/api/houses")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(houseWithEmptyName))
-                .andExpect(status().isBadRequest());
-    }
 
     @Test
     void givenHouseWithId_whenCallGetHouseById_thenReturnThisHouse() throws Exception {

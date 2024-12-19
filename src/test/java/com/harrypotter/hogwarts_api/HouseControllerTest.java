@@ -69,8 +69,8 @@ class HouseControllerTest {
     @Test
     void givenHouseWithId_whenCallGetHouseById_thenReturnThisHouse() throws Exception {
         House house = new House("Hufflepuff");
-        houseRepository.save(house);
-
+        house = houseRepository.save(house);
+    
         mockMvc.perform(get("/api/houses/" + house.getId())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())

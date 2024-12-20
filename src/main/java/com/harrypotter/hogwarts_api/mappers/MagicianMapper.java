@@ -13,14 +13,14 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface MagicianMapper {
 
-    @Mapping(target = "houseEntity.name", source = "houseName") // House se obtiene del nombre
-    @Mapping(target = "spells", ignore = true) // Se mapea manualmente si es necesario
+    @Mapping(target = "houseEntity.name", source = "houseName")
+    @Mapping(target = "spells", ignore = true)
     Magician toEntity(MagicianRequest request);
 
-    @Mapping(target = "houseName", source = "houseEntity.name") // Obtenemos el nombre de la casa
+    @Mapping(target = "houseName", source = "houseEntity.name")
     @Mapping(source = "createdAt", target = "createdAt")
     @Mapping(source = "updatedAt", target = "updatedAt")
-    @Mapping(target = "spells", expression = "java(mapSpellsToNames(magician.getSpells()))") // Lista de nombres de spells
+    @Mapping(target = "spells", expression = "java(mapSpellsToNames(magician.getSpells()))")
     MagicianResponse toResponse(Magician magician);
 
     default List<String> mapSpellsToNames(List<Spell> spells) {

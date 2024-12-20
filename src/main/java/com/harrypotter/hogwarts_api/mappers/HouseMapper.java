@@ -21,7 +21,7 @@ public interface HouseMapper {
     @Named("mapMagiciansToNames")
     default List<String> mapMagiciansToNames(List<Magician> magicians) {
         if (magicians == null || magicians.isEmpty()) {
-            return List.of(); // Devuelve una lista vacía si no hay magos
+            return List.of();
         }
         return magicians.stream()
                 .map(Magician::getName)
